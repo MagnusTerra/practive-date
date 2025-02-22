@@ -19,9 +19,19 @@ This project is a Node.js application to practice working with dates and times.
 
 ## Usage
 
-To run the application, use the following command:
+To run the application in development mode, use the following command:
 ```sh
-node index.js
+npm run dev
+```
+
+To build the application for production, use the following command:
+```sh
+npm run build
+```
+
+To start the application in production mode, use the following command:
+```sh
+npm start
 ```
 
 ### Local Usage
