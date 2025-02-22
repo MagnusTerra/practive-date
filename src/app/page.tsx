@@ -36,22 +36,22 @@ export default function Home() {
   return (
     <div className="dark flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black text-white">
       <main className="flex flex-col gap-8 items-center sm:items-start">
-        <h1 className="text-center text-5xl">Business Days Calculator</h1>
-        <p className="text-center">Calculate the number of business days between two dates.</p>
-        <div className="flex gap-8">
-          <div>
-            <h2 className="text-center mb-4">Date: 15/01/2025</h2>
-            <Calendar aria-label="Date (Controlled)" value={date1} isDateUnavailable={disabledDates} />
-          </div>
-          <div>
-            <h2 className="text-center mb-4">Current Date</h2>
-            <Calendar aria-label="Current Date" value={date2} isDateUnavailable={disabledDates} />
-          </div>
+      <h1 className="text-center text-4xl sm:text-5xl">Business Days Calculator</h1>
+      <p className="text-center text-sm sm:text-base">Calculate the number of business days between two dates.</p>
+      <div className="flex flex-col sm:flex-row gap-8">
+        <div>
+        <h2 className="text-center mb-4 text-lg sm:text-xl">Date: 15/01/2025</h2>
+        <Calendar aria-label="Date (Controlled)" value={date1} isDateUnavailable={disabledDates} />
         </div>
-        <div className="text-center mt-8">
-          <h3>Business Days Between: {daysBetween}</h3>
-          <h3>Total hours worked: {daysBetween * 8}</h3>
+        <div>
+        <h2 className="text-center mb-4 text-lg sm:text-xl">Current Date</h2>
+        <Calendar aria-label="Current Date" value={date2} isDateUnavailable={disabledDates} errorMessage />
         </div>
+      </div>
+      <div className="mt-8">
+        <h3 className="text-lg sm:text-xl">Business Days Between: {daysBetween}</h3>
+        <h3 className="text-lg sm:text-xl">Total hours worked: {daysBetween * 8}</h3>
+      </div>
       </main>
     </div>
   );

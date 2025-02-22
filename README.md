@@ -24,6 +24,10 @@ To run the application, use the following command:
 node index.js
 ```
 
+### Local Usage
+
+If you want to use the project on your local PC, you need to erase or comment out all the content of the `next.config.ts` file.
+
 ## Features
 
 - Parse and format dates
