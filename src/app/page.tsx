@@ -12,6 +12,14 @@ export default function Home() {
   const [daysBetween, setDaysBetween] = useState(0);
   const {locale} = useLocale();
 
+  // Calculate the discounted date
+  const calculateDiscountedDate = (date: CalendarDate) => {
+    let discountedDate = date.add({ days: -8 }); // Subtract 7 days for a week and 1 more day
+    return discountedDate;
+  };
+
+  const discountedDate = calculateDiscountedDate(date2);
+
   const disabledDates = (date: DateValue) => {
     return isWeekend(date, locale);
   };
@@ -30,7 +38,8 @@ export default function Home() {
       return count;
     };
 
-    setDaysBetween(calculateBusinessDays(date1, date2));
+    console.log("Discounted Date (1 week and 1 day ago):", discountedDate.toDate(getLocalTimeZone()));
+    setDaysBetween(calculateBusinessDays(date1, discountedDate));
   }, [date1, date2]);
 
   return (
@@ -40,11 +49,11 @@ export default function Home() {
       <p className="text-center text-sm sm:text-base">Calculate the number of business days between two dates.</p>
       <div className="flex flex-col sm:flex-row gap-8">
         <div>
-        <h2 className="text-center mb-4 text-lg sm:text-xl">Date: 15/01/2025</h2>
+        <h2 className="text-center mb-4 text-lg sm:text-xl">Date: {date1.toDate(getLocalTimeZone()).toLocaleDateString()}</h2>
         <Calendar aria-label="Date (Controlled)" value={date1} isDateUnavailable={disabledDates} />
         </div>
         <div>
-        <h2 className="text-center mb-4 text-lg sm:text-xl">Current Date</h2>
+        <h2 className="text-center mb-4 text-lg sm:text-xl">Current Date  {date2.toDate(getLocalTimeZone()).toLocaleDateString()}</h2>
         <Calendar aria-label="Current Date" value={date2} isDateUnavailable={disabledDates} errorMessage />
         </div>
       </div>
