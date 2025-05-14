@@ -14,7 +14,7 @@ export default function Home() {
 
   // Calculate the discounted date
   const calculateDiscountedDate = (date: CalendarDate) => {
-    let discountedDate = date.add({ days: -8 }); // Subtract 7 days for a week and 1 more day
+    const discountedDate = date.add({ days: -8 }); // Subtract 7 days for a week and 1 more day
     return discountedDate;
   };
 
